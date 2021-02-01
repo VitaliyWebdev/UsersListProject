@@ -5,7 +5,6 @@ import {ADD_CHOSEN_USER} from "../../Redux/action-types";
 import {Link} from "react-router-dom";
 
 export default function UserItem({user}) {
-    console.log('test');
     const dispatch = useDispatch();
     return (
         <ul className='mt-4'>

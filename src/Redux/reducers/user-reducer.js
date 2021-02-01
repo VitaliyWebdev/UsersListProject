@@ -22,12 +22,10 @@ export const reducer = (state = initialState, action) => {
             return {...state, users: action.payload}
         }
         case CREATE_USER: {
-            console.log(action.payload);
-            const {users} = state;
+            const users = [...state.users];
             const user = action.payload
             user.id = new Date().getTime()
             users.push(user)
-            console.log(users)
             return {...state, users};
         }
         default: {

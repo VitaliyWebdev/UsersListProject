@@ -10,16 +10,9 @@ export default function UserList() {
 
     const [loading, setLoading] = useState(null);
     const dispatch = useDispatch();
-    const users = useSelector(({users}) => {
-        console.log(users);
-
-        return users;
-    });
-    console.log('UserList');
-    console.log(users);
+    const users = useSelector(store => store.users);
 
     useEffect(() => {
-        console.log('useEffect');
         try {
             setLoading(true)
             userApi().then(data => dispatch({
@@ -31,13 +24,16 @@ export default function UserList() {
         } finally {
             setLoading(false)
         }
-
-    }, []);
+    }, [])
 
     return (
         <div className="col-3 bg-info ml-5">
-            {users && users.map((user, id) => <UserItem key={id} user={user}/>)}
-            {loading || loading === null && <p>Loading>>>>></p>  }
+            {
+                loading || loading === null
+                ? <p>Loading>>>>></p>
+                : users.map((user, id) =>
+                    <UserItem key={id} user={user}/>)
+            }
             <Link to='/users/create'>
                 <button type="button" className="btn btn-dark btn-lg btn-block create-btn">Create User</button>
             </Link>
