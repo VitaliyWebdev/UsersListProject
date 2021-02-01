@@ -22,7 +22,7 @@ export default function App() {
                     <FullUser/>
                     <Route path='/users/info/edit' component={Edit}/>
                 </Route>
-                <Route path='/users/create'>
+                <Route path='/users/create' >
                     <UserList/>
                     <CreateUser/>
                 </Route>
