@@ -28,8 +28,12 @@ export default function UserList() {
 
     return (
         <div className="col-3 bg-info ml-5">
-            {loading || loading === null ? <p>Loading>>>>></p> : users.map((user, id) => <UserItem key={id}
-                                                                                                   user={user}/>)}
+            {
+                loading || loading === null
+                ? <p>Loading>>>>></p>
+                : users.map((user, id) =>
+                    <UserItem key={id} user={user}/>)
+            }
             <Link to='/users/create'>
                 <button type="button" className="btn btn-dark btn-lg btn-block create-btn">Create User</button>
             </Link>
